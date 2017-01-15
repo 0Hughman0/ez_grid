@@ -208,6 +208,7 @@ csv files. Allows for easy customisation of this process by subclassing and over
             return value.ctime()
 
 # Installation
-
+* simply run `pip install ez_grid` 
+or
 * Clone the repository to wherever you want it with `git clone https://github.com/0Hughman0/ez_grid/`
 * Run the setup.py by navigating to the ez_grid folder in your chosen shell, and simply run `python setup.py install`
