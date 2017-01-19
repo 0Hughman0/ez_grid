@@ -45,3 +45,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Svn files
+.svn*
+
+# PyCharm files
+.idea*
+
+# Pyc
+*.pyc
+
+#Pypi Config
+.pypirc*
+
+# Ignore setup.py build directory
+build/
+dist/
+ez_grid.egg-info/
+

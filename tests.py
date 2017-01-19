@@ -196,6 +196,21 @@ class FilledCase(unittest.TestCase, BaseCase):
         self.grid = filled_grid
 
 
+class NonStringHeadingsCase(unittest.TestCase):
+
+    def setUp(self):
+        self.grid = Grid(range(5), range(5), default="sdf")
+
+    def test_repr(self):
+        expected = ("   0    1    2    3    4    \n"
+                    "0  sdf  sdf  sdf  sdf  sdf  \n"
+                    "1  sdf  sdf  sdf  sdf  sdf  \n"
+                    "2  sdf  sdf  sdf  sdf  sdf  \n"
+                    "3  sdf  sdf  sdf  sdf  sdf  \n"
+                    "4  sdf  sdf  sdf  sdf  sdf  ")
+        self.assertEquals(str(self.grid), expected)
+
+
 if __name__ == "__main__":
     unittest.main()
 

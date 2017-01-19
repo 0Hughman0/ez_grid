@@ -146,12 +146,11 @@ class Grid:
         return cls.from_lines(reader_obj)
 
     def __repr__(self):
-        first_col = [self.title] + self.row_hds
-        rows = []
-        for row in self.rows:
-            rows.append(tuple(str(value) for value in row))
-        headed_data_rows = [self.col_hds] + rows
-        headed_data_cols = [col for col in zip(*headed_data_rows)]
+        first_col = [self.title] + [str(heading) for heading in self.row_hds]
+        cols = []
+        for row, heading in zip(self.rows, self.col_hds):
+            cols.append([str(heading)] + [str(value) for value in row])
+        headed_data_cols = cols
         all_cols = [first_col] + headed_data_cols
         widths = [max(map(len, tuple(col))) + 2 for col in all_cols]
         row_strings = []
