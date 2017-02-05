@@ -1,4 +1,5 @@
 import unittest
+from datetime import date, timedelta
 
 from ez_grid import Grid, Cell
 
@@ -199,15 +200,15 @@ class FilledCase(unittest.TestCase, BaseCase):
 class NonStringHeadingsCase(unittest.TestCase):
 
     def setUp(self):
-        self.grid = Grid(range(5), range(5), default="sdf")
+        self.grid = Grid(list(range(5)), (date(1994, 2, 5) + timedelta(days=d) for d in range(3)), default="sdf")
 
     def test_repr(self):
-        expected = ("   0    1    2    3    4    \n"
-                    "0  sdf  sdf  sdf  sdf  sdf  \n"
-                    "1  sdf  sdf  sdf  sdf  sdf  \n"
-                    "2  sdf  sdf  sdf  sdf  sdf  \n"
-                    "3  sdf  sdf  sdf  sdf  sdf  \n"
-                    "4  sdf  sdf  sdf  sdf  sdf  ")
+        expected = ("   1994-02-05  1994-02-06  1994-02-07  \n"
+                    "0  sdf         sdf         sdf         \n"
+                    "1  sdf         sdf         sdf         \n"
+                    "2  sdf         sdf         sdf         \n"
+                    "3  sdf         sdf         sdf         \n"
+                    "4  sdf         sdf         sdf         ")
         self.assertEquals(str(self.grid), expected)
 
 

@@ -147,12 +147,9 @@ class Grid:
 
     def __repr__(self):
         first_col = [self.title] + [str(heading) for heading in self.row_hds]
-        cols = []
-        for row, heading in zip(self.rows, self.col_hds):
-            cols.append([str(heading)] + [str(value) for value in row])
-        headed_data_cols = cols
+        headed_data_cols = list([str(heading)] + list(col) for col, heading in zip(self.cols, self.col_hds))
         all_cols = [first_col] + headed_data_cols
-        widths = [max(map(len, tuple(col))) + 2 for col in all_cols]
+        widths = [max(map(lambda x: len(str(x)), tuple(col))) + 2 for col in all_cols]
         row_strings = []
         for row in zip(*all_cols):
             row_strings.append("".join((val.ljust(width) for val, width in zip(row, widths))))
